@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Goals</h1>
+
+<table class="table">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>State</th>
+    <th>Money Saved</th>
+  </tr>
+  </thead>
+
+  <tbody>
+  <% @goals.each do |goal| %>
+    <tr>
+      <td><%= link_to goal.id, goal_path(goal) %></td>
+      <td><%= goal.state %></td>
+      <td><%= goal.money_saved %></td>
+    </tr>
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+<p>------------------------------------</p>
+<%= link_to 'New Goal', new_goal_path, class: "btn btn-primary" %>

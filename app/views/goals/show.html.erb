@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+<h1>Goal: <%= @goal.id %></h1>
+<p>
+  State: <%= @goal.state %>
+  <br>
+  Money saved: <%= @goal.money_saved %>
+</p>
+
+<% if @goal.active? %>
+  <h3>Add money to goal</h3>
+  <%= form_tag({controller: "goals", action: "add_money"}, method: "post") do %>
+    <%= number_field_tag 'amount', nil, min: 1 %>
+    <%= hidden_field_tag(:goal_id, @goal.id) %>
+    <%= submit_tag("Add money", class: "btn btn-primary") %>
+  <% end %>
+<% else %>
+  <%= form_tag({controller: "goals", action: "activate"}, method: "post") do %>
+    <%= hidden_field_tag(:goal_id, @goal.id) %>
+    <%= submit_tag("Activate", class: "btn btn-primary") %>
+  <% end %>
+<% end %>
+<p>------------------------------------</p>
+
+<%= link_to 'Back', goals_path, class: "btn btn-default" %>
