@@ -37,3 +37,7 @@ yarn-debug.log*
 .env
 *.iml
 *.xml
+
+# ignore JetBrains IDE stuff
+.idea
+.generators
