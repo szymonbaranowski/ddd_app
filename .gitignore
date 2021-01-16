@@ -39,5 +39,8 @@ yarn-debug.log*
 *.xml
 
 # ignore JetBrains IDE stuff
-.idea
+.idea/*
 .generators
+
+# ignore node_modules
+/node_modules
